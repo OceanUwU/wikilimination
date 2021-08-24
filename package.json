@@ -1,0 +1,12 @@
+{
+  "name": "wikilimination",
+  "version": "1.0.0",
+  "description": "guess who with random wikipedia articles",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
