@@ -4,9 +4,16 @@
   "description": "guess who with random wikipedia articles",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ."
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "fetch": "^1.1.0",
+    "http": "^0.0.1-security",
+    "socket.io": "^4.1.3"
+  }
 }
