@@ -10,3 +10,10 @@ function join() {
 let logoSrc = $('#logo').attr('src');
 $('#logo').attr('src', '');
 $('#logo').attr('src', logoSrc);
+//play banner sfx
+(new Audio('/static/sfx.mp3')).play();
+
+//show error (if any)
+console.log(queryParams)
+if (queryParams.hasOwnProperty('err'))
+    bootbox.alert(queryParams.err);

@@ -3,4 +3,7 @@ jQuery.extend({
 });
 
 var queryParams = $.getQueryParameters();
+for (let i in queryParams)
+    if (typeof queryParams[i] == 'string')
+        queryParams[i] = decodeURIComponent(queryParams[i]);
 history.replaceState({}, $('title').html(), '/');
