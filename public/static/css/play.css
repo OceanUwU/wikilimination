@@ -65,6 +65,7 @@ td {
 #ownBoard td {
     height: 16vh;
     width: 18vw;
+    max-width: 20vw;
 }
 
 #ownBoard td > div {

@@ -58,6 +58,7 @@ socket.on('start', info => {
             let link = $('<a>');
             link.attr('target', '_blank');
             link.attr('href', url(article));
+            link.click(e => e.stopPropagation()) //stop clicking link from flipping tile
             link.text(article.title);
 
             div.append(link);
