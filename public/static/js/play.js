@@ -31,7 +31,6 @@ socket.on('loading', () => {
 });
 
 socket.on('start', info => {
-    console.log(info)
     gameInfo = info;
 
     $('#load').addClass('d-none');
@@ -53,9 +52,7 @@ socket.on('start', info => {
             let article = gameInfo.articles[board[pos]];
 
             let cell = $('<td>');
-            console.log(board[pos]);
             cell.attr('id', `own${board[pos]}`);
-            cell.click(() => console.log('flip', board[pos]));
             cell.click(() => socket.emit('flip', board[pos]));
             let div = $('<div>');
             let link = $('<a>');

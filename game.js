@@ -44,9 +44,7 @@ class Game {
     }
 
     join(socket) {
-        socket.place = this.connected.length;
-        if (this.players[1] != null)
-            socket.place = 0;
+        socket.place = this.players[1] == null ? (this.players[0] == null ? 0 : 1) : 0;
         this.players[socket.place] = socket;
         socket.game = this;
 
@@ -57,13 +55,10 @@ class Game {
                 this.start();
         } else
             socket.emit('start', this.gameInfo(socket.place));
-        
-        console.log(Object.keys(this.connected));
     }
 
     leave(socket) {
         this.players[socket.place] = null;
-        console.log(Object.keys(this.connected));
     }
 
     gameInfo(place) {
