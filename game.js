@@ -66,7 +66,6 @@ class Game {
             place,
             articles: this.articles,
             article: this.playerArticles[place],
-            boards: this.playerBoards,
             flipped: this.flipped,
             code: this.code,
         };
@@ -85,10 +84,8 @@ class Game {
         this.articles = this.articles.slice(0, numOfArticles);
         this.articles = this.articles.map(a => ({id: a.pageid, title: a.title}));
         shuffleArray(this.articles);
-        this.playerArticles = shuffleArray(Object.keys(this.articles)).slice(0, 2); //select a random article for each player
-        this.playerBoards = [0,0].map(e=>shuffleArray(Object.keys(this.articles)));
+        this.playerArticles = [0,0].map(e=>Math.floor(Math.random() * this.articles.length)); //select a random article for each player
         this.flipped = [0,0].map(e=>Array(this.articles.length).fill(false));
-        this.playerArticles.forEach((article, player) => this.flipped[player][article] = true);
 
         //tell clients
         for (let socket of this.connected) {

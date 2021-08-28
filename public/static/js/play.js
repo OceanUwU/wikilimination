@@ -44,16 +44,15 @@ socket.on('start', info => {
     link.text(article.title);
     link.attr('href', url(article));
 
-    let board = gameInfo.boards[gameInfo.place];
     for (let i = 0; i < rows; i++) {
         let row = $('<tr>');
         for (let j = 0; j < columns; j++) {
             let pos = columns * i + j;
-            let article = gameInfo.articles[board[pos]];
+            let article = gameInfo.articles[pos];
 
             let cell = $('<td>');
-            cell.attr('id', `own${board[pos]}`);
-            cell.click(() => socket.emit('flip', board[pos]));
+            cell.attr('id', `own${pos}`);
+            cell.click(() => socket.emit('flip', pos));
             let div = $('<div>');
             let link = $('<a>');
             link.attr('target', '_blank');
@@ -68,13 +67,12 @@ socket.on('start', info => {
         $('#ownBoard').append(row);
     }
 
-    let opponentBoard = gameInfo.boards[Number(!Boolean(gameInfo.place))];
     for (let i = 0; i < rows; i++) {
         let row = $('<tr>');
         for (let j = 0; j < columns; j++) {
             let pos = columns * i + j;
             let cell = $('<td>');
-            cell.attr('id', `opponent${opponentBoard[pos]}`);
+            cell.attr('id', `opponent${pos}`);
             row.append(cell);
         }
         $('#opponentBoard').append(row);
