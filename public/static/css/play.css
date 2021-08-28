@@ -68,7 +68,12 @@ td {
     max-width: 20vw;
 }
 
-#ownBoard td > div {
+#opponentBoard td {
+    height: 4vh;
+    width: 4vh;
+}
+
+table td > div {
     height: 100%;
     width: 100%;
     display: flex;
@@ -76,14 +81,9 @@ td {
     justify-content: center;
 }
 
-#ownBoard td > div > a {
+table td > div > a {
     text-align: center;
     color: #05004d;
-}
-
-#opponentBoard td {
-    height: 4vh;
-    width: 4vh;
 }
 
 .unflipped {

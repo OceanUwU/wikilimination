@@ -71,8 +71,18 @@ socket.on('start', info => {
         let row = $('<tr>');
         for (let j = 0; j < columns; j++) {
             let pos = columns * i + j;
+            let article = gameInfo.articles[pos]
+
             let cell = $('<td>');
             cell.attr('id', `opponent${pos}`);
+            let div = $('<div>');
+            let link = $('<a>');
+            link.attr('target', '_blank');
+            link.attr('href', url(article));
+            link.text(article.title[0]);
+
+            div.append(link);
+            cell.append(div);
             row.append(cell);
         }
         $('#opponentBoard').append(row);
